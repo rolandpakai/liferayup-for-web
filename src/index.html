@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>LiferayUp for Web</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><i
+                    class="fas fa-bars"></i></button>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> -->
+            </div>
+        </nav>
+
+        <div class="modal left fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="nav flex-sm-column flex-column">
+                            <a class="nav-item nav-link active" href="#">Home</a>
+                            <a href="#" class="nav-item nav-link">Link</a>
+                            <a href="#" class="nav-item nav-link">Link</a>
+                            <a href="#" class="nav-item nav-link">Link</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="upForm" name="upForm">
+            <div class="row pb-4">
+                <div class="col-md-6">
+                    <div class="card w-100 mt-1 liferay">
+                        <div class="card-header py-1"><i class="fas fa-box-open"></i> Version and patches</div>
+
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox my-2">
+                                <input type="checkbox" class="custom-control-input" id="bundle" name="bundle" checked>
+                                <label class="custom-control-label" for="use-prebuilt-bundle">Use prebuilt bundle</label>
+                            </div>
+
+                            <div class="two-columns">
+                                <div class="col-1">
+                                    <label for="portalVersion">Liferay version</label>
+                                    <select class="form-control" id="portalVersion" name="portalVersion">
+                                        <option disabled selected>Select ...</option>
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <label for="portalServicePack">Service Pack</label>
+                                    <select class="form-control" id="portalServicePack" name="portalServicePack" disabled>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="card w-100 mt-1 wrench">
+                                <div class="card-header py-1"><i class="fas fa-wrench"></i> Patching</div>
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="installPatches">
+                                    <label for="installPatches">Install patches</label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="patching">&nbsp;&nbsp;Patching-tool info file:</input>
+                                    <input type="file" id="patchInfoFile">
+                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="patching">&nbsp;&nbsp;Hotfix/fix pack install:</input>
+                                    <input type="text" id="hotfixesToInstall">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card w-100 mt-1 settings">
+                        <div class="card-header py-1"><i class="fas fa-tasks"></i> Options</div>
+
+                        <ul class="nav nav-tabs" id="prefTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab"
+                                   aria-controls="general" aria-selected="true">General</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="clustering-tab" data-toggle="tab" href="#clustering" role="tab"
+                                   aria-controls="clustering" aria-selected="false">Clustering</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="auth-tab" data-toggle="tab" href="#auth" role="tab"
+                                   aria-controls="auth" aria-selected="false">Auth.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tools-tab" data-toggle="tab" href="#tools" role="tab"
+                                   aria-controls="tools" aria-selected="false">Tools</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="exp-imp-tab" data-toggle="tab" href="#exp-imp" role="tab"
+                                   aria-controls="exp-imp" aria-selected="false">Exp./Imp.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="clean-tab" data-toggle="tab" href="#clean" role="tab"
+                                   aria-controls="clean" aria-selected="false">Clean</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="general" role="tabpanel"
+                                 aria-labelledby="general-tab">
+
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="enableImageMagick">
+                                    <label for="enableImageMagick">Enable ImageMagick</label>
+                                </div>
+
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="enableXuggler">
+                                    <label for="enableXuggler">Enable Xuggler</label>
+                                </div>
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="enableRemoteStaging">
+                                    <label for="enableRemoteStaging">Enable Remote Staging</label>
+                                </div>
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="enableOpenOffice">
+                                    <label for="enableOpenOffice">Enable OpenOffice integration</label>
+                                </div>
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="enableMailing">
+                                    <label for="enableMailing">Enable Mailing</label>
+                                </div>
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="enableCachingFiles">
+                                    <label for="enableCachingFiles">Cache it locally</label>
+                                </div>
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="cleanUpWorkDir">
+                                    <label for="cleanUpWorkDir">Clean up work folder</label>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="clustering" role="tabpanel" aria-labelledby="clustering-tab">
+                                <div class="input-group checkbox-input">
+                                    <input type="checkbox" id="useClustering" name="useClustering">
+                                    <label for="useClustering">Use clustering</label>
+                                </div>
+                                <div class="form-group">
+ 
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="auth" role="tabpanel" aria-labelledby="auth-tab">This is the
+                                Auth. tab
+                                ...
+                            </div>
+                            <div class="tab-pane fade" id="tools" role="tabpanel" aria-labelledby="tools-tab">This is
+                                the Tools tab
+                                ...
+                            </div>
+                            <div class="tab-pane fade" id="exp-imp" role="tabpanel" aria-labelledby="exp-imp-tab">This
+                                is the
+                                Exp./Imp.
+                                tab ...</div>
+                            <div class="tab-pane fade" id="clean" role="tabpanel" aria-labelledby="clean-tab">This is
+                                the Clean tab
+                                ...
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card w-100 mt-1 app-server">
+                        <div class="card-header py-1"><i class="fas fa-server"></i> App Server</div>
+                        <div class="form-group">
+                            <label for="applicationServer">Application Server</label>
+                            <select class="form-control" id="applicationServer" name="applicationServer" disabled>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="applicationServerVersion">Application Server Version</label>
+                            <select class="form-control" id="applicationServerVersion" name="applicationServerVersion" disabled>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="xmx">JVM Memory Setting:</label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                     <button type="button" class="btn btn-default btn-number btn-minus btn-number-jvm" disabled="disabled" data-type="minus" data-field="xmx">
+                                         <i class="fas fa-minus"></i>
+                                     </button>
+                                </span>
+                                <input type="text" name="xmx" id="xmx" class="form-control input-number" value="2048" min="1024" max="32768" style="max-width:80px;">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-number btn-plus btn-number-jvm" data-type="plus" data-field="xmx">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </span>
+                                <span class="mb">MB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card w-100 mt-1 database">
+                        <div class="card-header py-1"><i class="fas fa-database"></i> Database</div>
+                        <div class="form-group">
+                            <label for="databaseVendor">Database Vendor</label>
+                            <select class="form-control" id="databaseVendor" name="databaseVendor" disabled>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card w-100 mt-1 options">
+                        <div class="card-header py-1"><i class="fas fa-cogs"></i> Settings</div>
+                        <div class="form-group">
+                            <label for="storeType">Document Store Type</label>
+                            <select class="form-control" id="storeType" name="storeType" disabled>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col-md-12">
+
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary" id="submitButton" disabled>Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Collapsible Group Item #1
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Collapsible Group Item #2
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Collapsible Group Item #3
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+        </div> -->
+</body>
+
+</html>

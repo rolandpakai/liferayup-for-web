@@ -1,0 +1,102 @@
+/*Sidebar starts*/
+/*Inspired by https://www.codeply.com/go/64NlATVdc9/bootstrap-4-left-sidebar-with-modal*/
+.modal.left .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 250px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.modal.left .modal-body {
+    padding: 15px 15px 80px;
+}
+
+.modal.left.fade .modal-dialog {
+    left: -250px;
+    -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+    transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.show .modal-dialog {
+    left: 0;
+}
+
+.modal-content {
+    border-radius: 0;
+    border: none;
+}
+
+.modal-header {
+    border-bottom-color: #eee;
+    background-color: #fafafa;
+}
+
+.center{
+    width: 150px;
+    margin: 40px auto;
+
+}
+
+.btn-number {
+    border: solid 1px #b0b0b0;
+}
+#jvmMemorySettings {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.mb {
+    line-height: 40px;
+    margin-left: 10px;
+}
+
+.form-group {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.checkbox-input {
+    margin: 10px;
+}
+.checkbox-input label{
+    margin-left: 10px;
+    line-height: 16px;
+}
+
+.form-group input[type=radio] {
+    margin-left: 10px;
+    line-height: 16px;
+}
+
+#patchInfoFile {
+    width: 50%;
+}
+#hotfixesToInstall {
+    width: 60%;
+}
+
+.two-columns {
+    width: 100%;
+}
+
+.two-columns .col-1 {
+    width: 50%;
+    min-width: 240px;
+    float: left;
+}
+
+.two-columns .col-2 {
+    width: 50%;
+    min-width: 240px;
+    float: left;
+}
